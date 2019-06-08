@@ -1,4 +1,4 @@
-package com.home.Chapter_9_234_Trees.kotlin
+package com.practice.Chapter_9_234_Trees.kotlin
 
 import java.io.BufferedReader
 import java.io.IOException

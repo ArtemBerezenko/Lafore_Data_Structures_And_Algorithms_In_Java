@@ -1,4 +1,4 @@
-package com.practice.Chapter_8_Trees_Practice
+package com.practice.Chapter_8_Trees
 
 import java.util.*
 
