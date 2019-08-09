@@ -17,67 +17,28 @@ class Tree234 {
         } //end while
     }
 
-    //Exercise 1
-    fun findMinimum() {
-        var curNode: Node234? = root
-        var answer = Node234()
-        while (curNode != null) {
-            answer = curNode
-            curNode = curNode.getChild(0)
+    fun findMinimum(): Long? {
+        var currentNode: Node234? = root
+        var child = Node234()
+        while (currentNode != null) {
+            child = currentNode
+            currentNode = currentNode.getChild(0)
         }
-        println("Minimum value is " + answer.getItem(0)?.dData)
+        return child.getItem(0)?.dData
     }
 
-    //Exercise 2
     fun traverseInOrder() {
         recTraverse(root)
     }
 
-    private fun recTraverse(curNode: Node234?) {
-        //if it's a leaf, spew it all out
-        curNode?.let {
-            if (curNode.isLeaf) {
-                for (j in 0 until curNode.numItems)
-                    curNode.getItem(j)?.displayItem()
-                return
-            } else {
-                for (j in 0 until curNode.numItems + 1) {
-                    recTraverse(curNode.getChild(j))
-                    if (j < curNode.numItems)
-                        curNode.getItem(j)?.displayItem()
-                }
-            }//otherwise get child 0, print item 0, get child 1, print item 1...
+    private fun recTraverse(node: Node234?) {
+        if (node != null) {
+            recTraverse(node.getChild(0))
+            for (i in 0 until node.numItems) {
+                print("${node.getItem(i)?.dData} / ")
+            }
+            recTraverse(node.getChild(1))
         }
-    }
-
-    //Exercise 3b
-    //write over the original array (passed by reference)
-    //by iterating through the tree and increasing index of array (i)
-    //after each insertion
-    fun sortTraverse(theArray: LongArray) {
-        val i = 0
-        recSortTraverse(root, theArray, i)
-    }
-
-    private fun recSortTraverse(curNode: Node234, theArray: LongArray, i: Int): Int {
-        var i = i
-        //if it's a leaf, spew it all out
-        if (curNode.isLeaf) {
-            for (j in 0 until curNode.numItems) {
-                curNode.getItem(j)?.let { theArray[i] = it.dData }
-                i++
-            }
-            return i
-        } else {
-            for (j in 0 until curNode.numItems + 1) {
-                i = recSortTraverse(curNode.getChild(j)!!, theArray, i)
-                if (j < curNode.numItems) {
-                    theArray[i] = curNode.getItem(j)?.dData!!
-                    i++
-                }
-            }
-            return i
-        }//otherwise get child 0, print item 0, get child 1, print item 1...
     }
 
     fun insert(dValue: Long) {
