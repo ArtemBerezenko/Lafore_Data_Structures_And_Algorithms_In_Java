@@ -1,4 +1,4 @@
-package com.practice.Chapter_9_234_Trees.kotlin
+package com.practice.Chapter_9_234_Trees
 
 class Node234 {
     var numItems: Int = 0
@@ -9,10 +9,10 @@ class Node234 {
     private val itemArray = arrayOfNulls<DataItem>(ORDER - 1)
 
     val isLeaf: Boolean
-        get() = if (childArray[0] == null) true else false
+        get() = childArray[0] == null
 
     val isFull: Boolean
-        get() = if (numItems == ORDER - 1) true else false
+        get() = numItems == ORDER - 1
 
     fun connectChild(childNum: Int, child: Node234?) {
         childArray[childNum] = child

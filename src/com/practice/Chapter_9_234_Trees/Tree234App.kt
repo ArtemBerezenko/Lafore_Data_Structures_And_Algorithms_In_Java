@@ -1,4 +1,4 @@
-package com.practice.Chapter_9_234_Trees.kotlin
+package com.practice.Chapter_9_234_Trees
 
 import java.io.BufferedReader
 import java.io.IOException
@@ -35,7 +35,9 @@ object Tree234App {
         //insert all values into the tree
         for (j in 0 until counter)
             sortingTree.insert(theArray[j])
-//        sortingTree.sortTraverse(theArray)
+        println()
+        sortingTree.displayTree()
+        sortingTree.sortTraverse(theArray)
     }
 
     @Throws(IOException::class)

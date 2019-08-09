@@ -1,4 +1,4 @@
-package com.practice.Chapter_9_234_Trees.kotlin
+package com.practice.Chapter_9_234_Trees
 
 class DataItem(var dData: Long) {
     fun displayItem() {

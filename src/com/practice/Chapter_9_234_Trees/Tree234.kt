@@ -1,4 +1,4 @@
-package com.practice.Chapter_9_234_Trees.kotlin
+package com.practice.Chapter_9_234_Trees
 
 class Tree234 {
     private var root = Node234()
@@ -39,6 +39,25 @@ class Tree234 {
             }
             recTraverse(node.getChild(1))
         }
+    }
+
+    fun sortTraverse(array: LongArray) {
+        recSortTraverse(array, root)
+    }
+
+    private fun recSortTraverse(array: LongArray, node: Node234, index: Int = 0): Int {
+        var i = index
+        if (node.isLeaf) {
+            for (j in 0 until node.numItems) {
+                array[i++] = node.getItem(j)?.dData!!
+            }
+        } else {
+            for (j in 0 .. node.numItems) {
+                i = recSortTraverse(array, node.getChild(j)!!, i)
+                if (j < node.numItems) array[i++] = node.getItem(j)?.dData!!
+            }
+        }
+        return i
     }
 
     fun insert(dValue: Long) {
