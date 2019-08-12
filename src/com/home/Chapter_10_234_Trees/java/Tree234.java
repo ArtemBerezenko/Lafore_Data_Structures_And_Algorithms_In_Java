@@ -1,4 +1,4 @@
-package com.home.Chapter_9_234_Trees.java;
+package com.home.Chapter_10_234_Trees.java;
 
 class Tree234 {
     private Node234 root = new Node234();

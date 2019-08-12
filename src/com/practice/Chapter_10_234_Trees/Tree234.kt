@@ -1,4 +1,4 @@
-package com.practice.Chapter_9_234_Trees
+package com.practice.Chapter_10_234_Trees
 
 class Tree234 {
     private var root = Node234()
@@ -85,17 +85,16 @@ class Tree234 {
 
     fun split(thisNode: Node234) {
         //assumes node is full
-        val itemB: DataItem?
-        val itemC: DataItem?
+        val itemB: DataItem? = thisNode.removeItem()
+        val itemC: DataItem? = thisNode.removeItem()
         val parent: Node234?
-        val child2: Node234?
-        val child3: Node234?
+        val child2: Node234? = thisNode.disconnectChild(2)
+        val child3: Node234? = thisNode.disconnectChild(3)
         val itemIndex: Int
 
-        itemC = thisNode.removeItem() //remove rightmost item
-        itemB = thisNode.removeItem() //remove next item
-        child2 = thisNode.disconnectChild(2) //remove children
-        child3 = thisNode.disconnectChild(3)
+        //remove rightmost item
+        //remove next item
+        //remove children
 
         val newRight = Node234()
 
@@ -129,10 +128,9 @@ class Tree234 {
     }//end split()
 
     fun getNextChild(theNode: Node234, theValue: Long): Node234 {
-        var j: Int
+        var j: Int = 0
         //assumes node is not empty, not full, not a leaf
         val numItems = theNode.numItems
-        j = 0
         while (j < numItems)
         //for each item in node
         {                                //are we less?

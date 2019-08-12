@@ -1,4 +1,4 @@
-package com.home.Chapter_9_234_Trees.kotlin
+package com.home.Chapter_10_234_Trees.kotlin
 
 class Node234 {
     var numItems: Int = 0

@@ -1,11 +1,11 @@
-package com.practice.Chapter_9_234_Trees
+package com.practice.Chapter_10_23_Trees
 
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
 import java.io.Reader
 
-object Tree234App {
+object Tree23App {
 
     val string: String
         @Throws(IOException::class)
@@ -29,10 +29,8 @@ object Tree234App {
             return Integer.parseInt(s)
         }
 
-    //Exercise 3: Sort array with tree
-    fun sort(theArray: LongArray, counter: Int) {
-        val sortingTree = Tree234()
-        //insert all values into the tree
+    private fun sort(theArray: LongArray, counter: Int) {
+        val sortingTree = Tree23()
         for (j in 0 until counter)
             sortingTree.insert(theArray[j])
         println()
@@ -44,13 +42,22 @@ object Tree234App {
     @JvmStatic
     fun main(args: Array<String>) {
         var value: Int
-        val theTree = Tree234()
-
-        theTree.insert(50)
-        theTree.insert(40)
-        theTree.insert(60)
-        theTree.insert(30)
-        theTree.insert(70)
+        val theTree = Tree23()
+        with(theTree) {
+            insert(60)
+            insert(80)
+            insert(40)
+            insert(50)
+            insert(70)
+            insert(90)
+            insert(45)
+//            insert(10)
+//            insert(90)
+//            insert(20)
+//            insert(55)
+//            insert(100)
+//            insert(99)
+        }
 
         while (true) {
             print("Enter first letter of ")

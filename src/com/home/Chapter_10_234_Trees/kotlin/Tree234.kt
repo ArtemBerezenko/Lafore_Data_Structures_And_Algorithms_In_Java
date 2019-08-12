@@ -1,4 +1,4 @@
-package com.home.Chapter_9_234_Trees.kotlin
+package com.home.Chapter_10_234_Trees.kotlin
 
 class Tree234 {
     private var root = Node234()

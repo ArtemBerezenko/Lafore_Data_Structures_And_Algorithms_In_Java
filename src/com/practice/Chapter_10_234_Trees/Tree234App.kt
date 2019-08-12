@@ -1,4 +1,4 @@
-package com.home.Chapter_9_234_Trees.kotlin
+package com.practice.Chapter_10_234_Trees
 
 import java.io.BufferedReader
 import java.io.IOException
@@ -35,6 +35,8 @@ object Tree234App {
         //insert all values into the tree
         for (j in 0 until counter)
             sortingTree.insert(theArray[j])
+        println()
+        sortingTree.displayTree()
         sortingTree.sortTraverse(theArray)
     }
 
@@ -61,7 +63,10 @@ object Tree234App {
                     value = int
                     theTree.insert(value.toLong())
                 }
-                'm' -> theTree.findMinimum()
+                'm' -> {
+                    val min = theTree.findMinimum()
+                    print("Minimum is $min\n")
+                }
                 'o' -> {
                     value = 0
                     val arrayToSort = LongArray(20)
@@ -83,7 +88,10 @@ object Tree234App {
                         print(arrayToSort[j].toString() + " ")
                     println("")
                 }
-                't' -> theTree.traverseInOrder()
+                't' -> {
+                    theTree.traverseInOrder()
+                    println("")
+                }
                 'f' -> {
                     print("Enter value to find: ")
                     value = int
