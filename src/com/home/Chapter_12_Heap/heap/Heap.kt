@@ -1,4 +1,4 @@
-package com.home.Chapter_12_Heap
+package com.home.Chapter_12_Heap.heap
 
 class Heap(val maxSize: Int) {
     private val heapArray = arrayOfNulls<Node>(maxSize)
