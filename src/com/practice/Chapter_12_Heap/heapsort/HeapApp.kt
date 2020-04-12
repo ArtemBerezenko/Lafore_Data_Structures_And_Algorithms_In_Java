@@ -1,8 +1,6 @@
-package com.home.Chapter_12_Heap.heapsort
+package com.practice.Chapter_12_Heap.heapsort
 
-import com.practice.Chapter_12_Heap.heapsort.Heap
-import com.practice.Chapter_12_Heap.heapsort.HeapApp
-import com.practice.Chapter_12_Heap.heapsort.Node
+import com.home.Chapter_12_Heap.heapsort.HeapApp
 import java.io.BufferedReader
 import java.io.InputStreamReader
 

@@ -1,7 +1,4 @@
-package com.home.Chapter_12_Heap.heapsort
-
-import com.practice.Chapter_12_Heap.heapsort.Node
-
+package com.practice.Chapter_12_Heap.heapsort
 
 data class Node(var key: Int)
 

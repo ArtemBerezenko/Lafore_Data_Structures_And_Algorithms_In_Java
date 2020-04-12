@@ -1,13 +1,33 @@
-package com.home.Chapter_12_Heap.heapsort
-
-import com.practice.Chapter_12_Heap.heapsort.Node
-
-
-data class Node(var key: Int)
+package com.practice.Chapter_12_Heap.priorityQ_heap
 
 class Heap(val maxSize: Int) {
     private val heapArray = arrayOfNulls<Node>(maxSize)
     private var currentSize = 0
+
+    fun isEmpty(): Boolean = currentSize == 0
+
+    fun insert(key: Int): Boolean {
+        if (currentSize == maxSize)
+            return false
+        val newNode = Node(key)
+        heapArray[currentSize] = newNode
+        trickleUp(currentSize++)
+        return true
+    }
+
+    private fun trickleUp(index: Int) {
+        var i = index
+        var parent = (i - 1) / 2
+        val bottom = heapArray[i]
+
+        while (i > 0 && heapArray[parent]!!.key < bottom!!.key) {
+
+            heapArray[i] = heapArray[parent]
+            i = parent
+            parent = (parent - 1) / 2
+        }
+        heapArray[i] = bottom
+    }
 
     fun remove(): Node? {
         val root = heapArray[0]
@@ -16,7 +36,9 @@ class Heap(val maxSize: Int) {
         return root
     }
 
-    fun trickleDown(index: Int) {
+    fun getLast() = heapArray[0]
+
+    private fun trickleDown(index: Int) {
         var i = index
         var largerChild: Int
         val top = heapArray[i]
@@ -38,7 +60,33 @@ class Heap(val maxSize: Int) {
         heapArray[i] = top
     }
 
+    fun change(index: Int, newValue: Int): Boolean {
+
+        if (index < 0 || index >= currentSize)
+
+            return false
+
+        val oldValue = heapArray[index]?.key
+
+        heapArray[index]?.key = newValue
+
+
+        if (oldValue!! < newValue)
+            trickleUp(index)
+        else
+            trickleDown(index)
+        return true
+    }
+
     fun displayHeap() {
+        print("heapArray: ")
+        for (m in 0 until currentSize)
+            if (heapArray[m] != null)
+                print("${heapArray[m]?.key} ")
+            else
+                print("-- ")
+
+        println()
         var nBlanks = 32
         var itemsPerRow = 1
         var column = 0
@@ -65,22 +113,8 @@ class Heap(val maxSize: Int) {
                     print(' ')
 
         }
-        println("\n" + dots + dots)
-    }
+        println("\n" + dots + dots) // dotted bottom line
 
-    fun displayArray() {
-        for (i in 0 until maxSize) {
-            print("${heapArray[i]?.key} ")
-        }
-        println("")
-    }
-
-    fun insertAt(index: Int, newNode: Node) {
-        heapArray[index] = newNode
-    }
-
-    fun incrementSize() {
-        currentSize++
     }
 
 }
