@@ -9,12 +9,12 @@ class PriorityQ {
 
   def insert(item: Edge): Unit = {
     var k = 0
+
     breakable {
-      for (i <- 0 until size) {
-        k = i
-        if (item.distance >= queArray(i).distance) {
-          break
-        }
+      while (k < size) {
+        if (item.distance >= queArray(k).distance)
+          break()
+        k += 1
       }
     }
 
